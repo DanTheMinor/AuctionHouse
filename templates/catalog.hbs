@@ -1,7 +1,17 @@
 <h1>{{title}}</h1>
 
+<h2>Auction Items</h2>
+
+<ul>
+  {{#each items}}
+    <li>{{#link-to 'item' this.id}}{{title}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+
 <button class="btn btn-primary" {{action 'delete'}}>Delete Catalog</button>
 
-<!-- <p>
-  {{#link-to 'item' classNames="btn btn-primary"}}Add to Auction{{/link-to}}
-</p> -->
+<p>
+  {{#link-to 'add-item' this.id class="btn btn-primary"}}Add to Auction{{/link-to}}
+</p>
+
+{{outlet}}
