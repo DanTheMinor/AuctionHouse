@@ -1,0 +1,13 @@
+
+  <h1>Auction House!</h1>
+  <ul>
+    {{#each}}
+      <li>{{#link-to 'catalog' this.id}}{{title}}{{/link-to}}</li>
+      <!-- <li>{{id}}</li> -->
+
+    {{/each}}
+  </ul>
+
+<p>
+  {{#link-to 'new-catalog' classNames="btn btn-primary"}}Create New Catalog{{/link-to}}
+</p>
