@@ -29,6 +29,7 @@
   {{else}}
 
   <p class="lead">Staring Auction Price: {{bid}}</p>
+  <p class="lead">Current Bid: {{current_bid}}</p>
   <h4>Grade: {{grade}}</h4>
   <h4>Description: {{description}}</h4>
 
@@ -37,12 +38,18 @@
 
   {{/if}}
 
+
+
   <h2>Bidders</h2>
 
   {{#each bidders}}
     <p>{{name}}</p>
   {{/each}}
 
-<p>{{#link-to 'new-bid' class="btn btn-success"}}New Bidder{{/link-to}}</p>
 
-{{outlet}}
+<p>{{#link-to 'new-bid' class="btn btn-success"}}New Bidder{{/link-to}}</p>
+<!-- <p>{{#link-to 'edit-bid' class="btn btn-primary"}}Edit your bid{{/link-to}}</p> -->
+
+
+{{render 'new-bid'}}
+<!-- {{outlet 'new-bid'}} -->

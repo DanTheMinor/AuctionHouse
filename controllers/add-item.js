@@ -6,7 +6,8 @@ Auction.AddItemController = Ember.Controller.extend({
           title: this.get('title'),
           grade: this.get('grade'),
           bid: this.get('bid'),
-          description: this.get('description')
+          description: this.get('description'),
+          current_bid: 0
       });
       item.save();
 

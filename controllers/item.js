@@ -1,5 +1,6 @@
 Auction.ItemController = Ember.ObjectController.extend({
   isEditing: false,
+  isEditingBid: false,
   actions: {
     edit: function() {
       this.set('isEditing', true);
@@ -16,6 +17,13 @@ Auction.ItemController = Ember.ObjectController.extend({
         this.transitionToRoute('/catalogs/' + id);
         //catalogs/9c63h
       }
+    },
+    addingBidder: function() {
+      this.set('isAddingBidder', true);
+    },
+    saveNewBid: function() {
+      this.set('isAddingBidder', false);
+      this.get('model').save();
     }
   }
 });

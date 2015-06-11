@@ -6,4 +6,5 @@ Auction.Router.map(function() {
   });
   this.resource('item', {path: 'item/:item_id'});
   this.resource('new-bid');
+  this.resource('edit-bid');
 });
