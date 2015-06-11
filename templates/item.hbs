@@ -36,3 +36,13 @@
   <button class="btn btn-primary" {{action 'delete'}}>Delete</button>
 
   {{/if}}
+
+  <h2>Bidders</h2>
+
+  {{#each bidders}}
+    <p>{{name}}</p>
+  {{/each}}
+
+<p>{{#link-to 'new-bid' class="btn btn-success"}}New Bidder{{/link-to}}</p>
+
+{{outlet}}

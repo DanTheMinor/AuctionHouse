@@ -3,5 +3,6 @@ Auction.Item = DS.Model.extend({
   description: DS.attr(),
   grade: DS.attr(),
   bid: DS.attr(),
-  catalog: DS.belongsTo('catalog', {async: true})
+  catalog: DS.belongsTo('catalog', {async: true}),
+  bidders: DS.hasMany('bidder', {async: true})
 });

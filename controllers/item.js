@@ -10,9 +10,11 @@ Auction.ItemController = Ember.ObjectController.extend({
     },
     delete: function() {
       if (confirm('Are you sure?')) {
-        debugger;
+        id = this.get('catalog.id')
+        //debugger;
         this.get('model').destroyRecord();
-        // this.transitionToRoute('catalog'/:catalog_id');
+        this.transitionToRoute('/catalogs/' + id);
+        //catalogs/9c63h
       }
     }
   }

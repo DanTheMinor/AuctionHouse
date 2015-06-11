@@ -5,4 +5,5 @@ Auction.Router.map(function() {
     this.resource('add-item');
   });
   this.resource('item', {path: 'item/:item_id'});
+  this.resource('new-bid');
 });
