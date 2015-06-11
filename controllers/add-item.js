@@ -14,7 +14,10 @@ Auction.AddItemController = Ember.Controller.extend({
       var catalog = this.get('controllers.catalog.model');
       catalog.get('items').pushObject(item);
       catalog.save();
-
+      this.set('title', '')
+      this.set('grade', '')
+      this.set('bid', '')
+      this.set('description', '')
       this.transitionToRoute('catalog', catalog.id);
     }
   }

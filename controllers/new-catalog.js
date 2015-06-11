@@ -7,6 +7,8 @@ Auction.NewCatalogController = Ember.Controller.extend({
       });
 
       newCatalog.save();
+      this.set('title', '');
+      this.set('description', '')
       this.transitionToRoute('catalogs');
     }
   }

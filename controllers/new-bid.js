@@ -1,10 +1,11 @@
 Auction.NewBidController = Ember.Controller.extend({
+
   needs: ['item'],
   actions: {
     save: function() {
       var bidder = this.store.createRecord('bidder', {
           name: this.get('name'),
-          bid_amount: this.get('bid')
+          bid_amount: this.get('bid_amount')
       });
       bidder.save();
 
@@ -13,7 +14,7 @@ Auction.NewBidController = Ember.Controller.extend({
       item.save();
 
 
-      bidder_bid = this.get('bid');
+      bidder_bid = this.get('bid_amount');
       //debugger
       current_bid = item.get('current_bid')
       current_bid_int = parseInt(current_bid)
@@ -24,6 +25,8 @@ Auction.NewBidController = Ember.Controller.extend({
       else {
         item.set('current_bid', bidder_bid);
       }
+
+      this.set('bid_amount', '');
       this.transitionToRoute('item', item.id);
     }
   }

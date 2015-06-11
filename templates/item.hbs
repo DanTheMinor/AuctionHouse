@@ -1,55 +1,69 @@
+<div class="row">
+  <div class="col-md-4">
 
-<h1>{{title}}</h1>
+  <h1>{{title}}</h1>
 
 
-{{#if isEditing}}
+  {{#if isEditing}}
 
-  <form>
-    <div class="form-group">
-      <label for="title">Title</label>
-      {{input id="title" class="form-control" value=title}}
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        {{input id="title" class="form-control" value=title}}
+      </div>
+      <div class="form-group">
+        <label for="grade">Grade</label>
+        {{input id="grade" class="form-control" value=grade}}
+      </div>
+      <div class="form-group">
+        <label for="bid">Starting Bid</label>
+        {{input id="bid" class="form-control" value=bid}}
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        {{textarea id="description" class="form-control" rows="15" value=description}}
+      </div>
+
+      <button class="btn btn-primary" {{action 'save'}}>Save</button>
+
+    </form>
+
+    {{else}}
+
+    <p class="lead">Starting Auction Price: {{bid}}</p>
+    <p class="lead">Current Bid: {{current_bid}}</p>
+    <h4>Grade: {{grade}}</h4>
+    <h4>Description: {{description}}</h4>
+
+    <button class="btn btn-primary" {{action 'edit'}}>Edit</button>
+    <button class="btn btn-primary" {{action 'delete'}}>Delete</button>
+
+    {{/if}}
+
+  </div>
+
+  <div class="col-md-4">
+
+  </div>
+
+
+  <div class="col-md-4">
+      <h2>Bidders</h2>
+
+      {{#each bidders}}
+        <p>{{name}}{{#link-to 'edit-bid' class="glyphicon glyphicon-pencil"}}Edit-Bid{{/link-to}}</p>
+
+      {{/each}}
+
+
+      <p>{{#link-to 'new-bid' class="btn btn-success btn-xs"}}New Bidder{{/link-to}}</p>
     </div>
-    <div class="form-group">
-      <label for="grade">Grade</label>
-      {{input id="grade" class="form-control" value=grade}}
-    </div>
-    <div class="form-group">
-      <label for="bid">Starting Bid</label>
-      {{input id="bid" class="form-control" value=bid}}
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      {{textarea id="description" class="form-control" rows="15" value=description}}
-    </div>
 
-    <button class="btn btn-primary" {{action 'save'}}>Save</button>
+</div>
 
-  </form>
-
-  {{else}}
-
-  <p class="lead">Staring Auction Price: {{bid}}</p>
-  <p class="lead">Current Bid: {{current_bid}}</p>
-  <h4>Grade: {{grade}}</h4>
-  <h4>Description: {{description}}</h4>
-
-  <button class="btn btn-primary" {{action 'edit'}}>Edit</button>
-  <button class="btn btn-primary" {{action 'delete'}}>Delete</button>
-
-  {{/if}}
-
-
-
-  <h2>Bidders</h2>
-
-  {{#each bidders}}
-    <p>{{name}}</p>
-  {{/each}}
-
-
-<p>{{#link-to 'new-bid' class="btn btn-success"}}New Bidder{{/link-to}}</p>
-<!-- <p>{{#link-to 'edit-bid' class="btn btn-primary"}}Edit your bid{{/link-to}}</p> -->
-
-
-<!-- {{render 'new-bid'}} -->
-{{outlet}}
+<div class="row">
+  <div class="col-md-8"></div>
+  <div class="col-md-4">
+    {{outlet}}
+  </div>
+</div>
